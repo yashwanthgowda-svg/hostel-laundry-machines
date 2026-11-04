@@ -93,3 +93,27 @@ def add_machine(id, name, block, kind, cycle_minutes):
     }
     session.close()
     return response
+
+
+
+def update_machine_service(machine_id, in_service:int):
+    session = Session(engine)
+    # machine = session.query(Machines).filter(Machines.id == machine_id).first()
+    machine = session.get(Machines,id)
+    if machine is None:
+        session.close()
+        return None
+    if in_service == 0:
+        run = session.query(Runs).filter(Runs.machine_id == machine_id,Runs.ends_at > datetime.now()).order_by(desc()).first()
+        if run:
+            session.close()
+            return "Machine is currently running"
+    machine.in_service = in_service
+    session.commit()
+    response = {
+        "message": "Machine status updated",
+        "id": machine.id,
+        "in_service": machine.in_service
+    }
+    session.close()
+    return response
