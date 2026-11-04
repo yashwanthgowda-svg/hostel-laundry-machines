@@ -1,6 +1,6 @@
 | #   | What it does | Method | Path | Request body | Success code | Error codes |
 |-----|--------------|--------|------|--------------|--------------|-------------|
-| E1  | Get all the machines. Can be filtered by block and kind. Each one includes its state, and minutes left if running. | | | | | |
+| E1  | Get all the machines. Can be filtered by block and kind. Each one includes its state, and minutes left if running. | GET	| 	/machines|none | | |
 | E2  | Get one machine by its id, with its last 5 runs. | | | | | |
 | E3  | Add a machine: name, block, kind and cycle minutes. It starts in service. | | | | | |
 | E4  | Mark a machine out of order or back in service. | | | | | |
