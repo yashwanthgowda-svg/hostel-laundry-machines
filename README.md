@@ -3,7 +3,7 @@
 | E1  | Get all the machines. Can be filtered by block and kind. Each one includes its state, and minutes left if running. | get	| 	/machines|none | | |
 | E2  | Get one machine by its id, with its last 5 runs. |get | /machines/{id}| none| | |
 | E3  | Add a machine: name, block, kind and cycle minutes. It starts in service. | post|/machines | | | |
-| E4  | Mark a machine out of order or back in service. | pach|/machines/{id}/state | | | |
+| E4  | Mark a machine out of order or back in service. | pach|/machines/{id}/+ | | | |
 | E5  | Start a machine with a roll number. It starts now and ends after the machine's cycle minutes. | post|/machines/{id}/+ | | | |
 | E6  | Collect clothes from a run, with the roll number of the student who started it. |pach | | | | |
 | E7  | Clear a machine whose clothes weren't collected, with your roll number. The run becomes `cleared`. |pach | | | | |
