@@ -56,8 +56,40 @@ def get_all_machines(block=None, kind=None):
             "block": machine.block,
             "kind": machine.kind,
             "state": state
+            
+       
         }
+        
+        if block:
+            print(Machines.block)
+        if kind:
+            print(Machines.kind)
     response.append(temp)
     session.commit()
+    session.close()
+    return response
+
+
+
+def add_machine(id, name, block, kind, cycle_minutes):
+    session = Session(engine)
+    machine = Machines(
+        id=id,
+        name=name,
+        block=block,
+        kind=kind,
+        cycle_minutes=cycle_minutes,
+        in_service=1
+    )
+    session.add(machine)
+    session.commit()
+    response = {
+        "id": machine.id,
+        "name": machine.name,
+        "block": machine.block,
+        "kind": machine.kind,
+        "cycle_minutes": machine.cycle_minutes,
+        "in_service": machine.in_service
+    }
     session.close()
     return response
