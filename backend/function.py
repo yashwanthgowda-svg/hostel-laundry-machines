@@ -80,9 +80,9 @@ def get_machine_by_id(machine_id):
         last_runs.append({
             "id": run.id,
             "roll_no": run.roll_no,
-            "started_at": str(run.started_at) if run.started_at else None,
-            "ends_at": str(run.ends_at) if run.ends_at else None,
-            "collected_at": str(run.collected_at) if run.collected_at else None,
+            "started_at": str(run.started_at) ,
+            "ends_at": str(run.ends_at) 
+            "collected_at": str(run.collected_at) ,
             "status": run.status
         })
     response = {
@@ -244,6 +244,12 @@ def clear_machine(machine_id, roll_no):
     }
     session.close()
     return response
+
+
+
+
+
+
 
 
 
